@@ -1,36 +1,47 @@
-## 🧪 How to Work on the Exercises
+# Warehouse Product Manager Implementation
 
-Each exercise is described in a GitHub Issue. Follow these steps to complete an exercise and submit your solution:
+## 📌 Overview
+This PR introduces the **Warehouse Product Manager** with functionality for managing immutable `Product` entities using **Java 8 Streams**.  
+All functionality is covered by unit tests with **JUnit 5**.
 
-### 📥 1. Clone or Fork the Repository
-```bash
-git clone https://github.com/fungover/exercise2025.git
-```
-Or fork the repository via GitHub and clone your fork.
+---
 
-### 🌱 2. Create a Branch
-Create a new branch named using the format: your-github-username/exerciseNumber
+## ✅ Implemented Features
 
-Example for user githubuser working on Exercise 1:
+### Entities
+- `Product` (Java record, immutable)
+- `Category` (enum type)
 
-```bash
-git checkout -b githubuser/exercise1
-```
+### Warehouse (service)
+- `addProduct(Product product)` → Validates and adds new product
+- `updateProduct(String id, String name, Category category, int rating)` → Updates existing product with validation
+- `getAllProducts()` → Returns a defensive copy of all products
+- `getProductById(String id)` → Retrieves a product by ID or throws exception
+- `getProductsByCategorySorted(Category category)` → Returns products in category, sorted A–Z by name
+- `getProductsCreatedAfter(LocalDate date)` → Filters by creation date
+- `getModifiedProducts()` → Returns products where `createdDate != modifiedDate`
+- `getCategoriesWithProducts()` → Returns all categories with at least one product
+- `countProductsInCategory(Category category)` → Counts products in a given category
+- `getProductInitialsMap()` → Builds a map of product name initials and their counts
+- `getTopRatedProductsThisMonth()` → Returns top-rated products created this month, sorted newest first
 
-### 🛠️ 3. Implement Your Solution
-Follow the instructions in the corresponding issue. If anything is unclear, ask questions by commenting directly on the issue.
+---
 
-### 🚀 4. Push Your Branch
-```bash
-git push origin githubuser/exercise1
-```
+## 🧪 Testing
+- Comprehensive **JUnit 5 test suite** (`WarehouseTest`)
+- Each public method covered with:
+  - ✅ Success case(s)
+  - ❌ Failure/invalid input case(s)
+- ~40 test usages ensure validation of different branches and behaviors
 
-### 📬 5. Create a Pull Request
-Open a Pull Request (PR) from your branch.
+---
 
-Link the PR to the issue you're solving.
+## 🎯 Result
+- Codebase now includes a complete product management service
+- Functionality is fully validated through unit tests
+- Clean, stream-based implementations following modern Java practices
 
-Include a clear description of your solution.
+---
 
-### 💬 6. Feedback and Iteration
-Reviewers may leave comments or suggestions. Update your branch and push changes until the PR is approved.
+##
+Linked issue # 7 
