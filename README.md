@@ -44,4 +44,5 @@ All functionality is covered by unit tests with **JUnit 5**.
 ---
 
 ##
-Linked issue # 7 
+School assignment 
+Linked issue [Exercise 3 – Unit testing and Functional Programming](https://github.com/fungover/exercise2025/issues/7)
